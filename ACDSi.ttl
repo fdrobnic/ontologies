@@ -1,0 +1,460 @@
+@prefix : <https://github.com/fdrobnic/ontologies/ACDSi#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix acdsi: <https://github.com/fdrobnic/ontologies/ACDSi#> .
+@prefix saref: <https://saref.etsi.org/core/v3.1.1#> .
+@base <https://github.com/fdrobnic/ontologies/ACDSi#> .
+
+<https://github.com/fdrobnic/ontologies/ACDSi> rdf:type owl:Ontology ;
+                                                dc:creator acdsi:Franc_Drobnic ;
+                                                dc:title "ACDSi Ontology"@en ;
+                                                dct:created "2023-06-10T00:00:00"^^xsd:dateTime ;
+                                                dct:modified "2024-02-06T00:00:00"^^xsd:dateTime ;
+                                                rdfs:label "ACDSi Ontology as defined by University of Ljubljana, Faculty of Sports"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dct:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+rdf:type rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#sameAs
+owl:sameAs rdf:type owl:AnnotationProperty .
+
+
+###  https://saref.etsi.org/core/v3.1.1/isMeasuredIn
+<https://saref.etsi.org/core/v3.1.1/isMeasuredIn> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#age
+acdsi:age rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:integer ;
+          rdfs:comment "Age in years at the ACDSi Measurement time. Units: 'year'"@en ;
+          rdfs:label "Age"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#armPlateTapping
+acdsi:armPlateTapping rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:decimal ;
+                      rdfs:comment "Arm Plate Tapping description. Units: 'one'"@en ;
+                      rdfs:label "Arm Plate Tapping"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#backwardsObstacleCourse
+acdsi:backwardsObstacleCourse rdf:type owl:DatatypeProperty ;
+                              rdfs:range xsd:decimal ;
+                              rdfs:comment "Backwards Obstacle Course description. Units: 'second'"@en ;
+                              rdfs:label "Backwards Obstacle Course"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#bentArm-hang
+acdsi:bentArm-hang rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:decimal ;
+                   rdfs:comment "Bent Arm-hang description. Units: 'second'"@en ;
+                   rdfs:label "Bent Arm-hang"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#bodyMassIndex
+acdsi:bodyMassIndex rdf:type owl:DatatypeProperty ;
+                    rdfs:range xsd:decimal ;
+                    rdfs:comment "A measurement relating body weight to height in an organism; typically calculated as the weight of an individual divided by the height of that individual squared. For quadrupeds, the square of body height is often replaced by the square of body length. Units: 'kilogram per meter squared'"@en ;
+                    rdfs:label "Body Mass Index"@en ;
+                    rdfs:seeAlso <http://purl.org/twc/ontologies/cmo.owl#0000105> .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#flamingoBalanceTest
+acdsi:flamingoBalanceTest rdf:type owl:DatatypeProperty ;
+                          rdfs:range xsd:decimal ;
+                          rdfs:comment "Flamingo Balance Test description. Units: 'second'"@en ;
+                          rdfs:label "Flamingo Balance Test"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#handGrip
+acdsi:handGrip rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:decimal ;
+               rdfs:comment "Hand Grip description. Units: 'kilogram'"@en ;
+               rdfs:label "Hand Grip"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#height
+acdsi:height rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "Height description. Units: 'centimetre'"@en ;
+             rdfs:label "Height"@en ;
+             <https://saref.etsi.org/core/v3.1.1/isMeasuredIn> <https://saref.etsi.org/core/v3.1.1/UnitOfMeasure> .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#personIdentifier
+acdsi:personIdentifier rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Any value identifying the person subject to the ACDSi Measurement. Anonymized and should prevent reidentification."@en ;
+                       rdfs:label "Person identifier"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#sex
+acdsi:sex rdf:type owl:DatatypeProperty ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Biological sex is the quality of a biological organism based on reproductive function or organs."@en ;
+          rdfs:label "Sex"@en ;
+          rdfs:seeAlso "http://semanticscience.org/resource/SIO_010029" .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#shoulderCircumductionTest
+acdsi:shoulderCircumductionTest rdf:type owl:DatatypeProperty ;
+                                rdfs:range xsd:decimal ;
+                                rdfs:comment "Shoulder Circumduction Test description. Units: 'centimetre'"@en ;
+                                rdfs:label "Shoulder Circumduction Test"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#sitAndReach
+acdsi:sitAndReach rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:decimal ;
+                  rdfs:comment "Sit and Reach description. Units: 'centimetre'"@en ;
+                  rdfs:label "Sit and Reach"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#standAndReach
+acdsi:standAndReach rdf:type owl:DatatypeProperty ;
+                    rdfs:range xsd:decimal ;
+                    rdfs:comment "Stand and Reach description. Units: 'centimetre'"@en ;
+                    rdfs:label "Stand and Reach"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#standingLongJump
+acdsi:standingLongJump rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:decimal ;
+                       rdfs:comment "Standing Long Jump description. Units: 'centimetre'"@en ;
+                       rdfs:label "Standing Long Jump"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#tricepsSkinfold
+acdsi:tricepsSkinfold rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:decimal ;
+                      rdfs:comment "Triceps Skinfold description. Units: 'millimetre'"@en ;
+                      rdfs:label "Triceps Skinfold"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#vO2Max
+acdsi:vO2Max rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "VO2max description. Units: 'ml/kg/min'"@en ;
+             rdfs:label "VO2max"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#weight
+acdsi:weight rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "Weight description. Units: 'kilogram'"@en ;
+             rdfs:label "Weight"@en ;
+             rdfs:seeAlso <http://purl.obolibrary.org/obo/CMO_0000012> .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#20-sDrummingTest
+<https://github.com/fdrobnic/ontologies/ACDSi#20-sDrummingTest> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:range xsd:decimal ;
+                                                                rdfs:comment "20-s Drumming Test description. Units: 'one'"@en ;
+                                                                rdfs:label "20-s Drumming Test"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#20-sSit-ups
+<https://github.com/fdrobnic/ontologies/ACDSi#20-sSit-ups> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:range xsd:decimal ;
+                                                           rdfs:comment "20-s Sit-ups description. Units: 'one'"@en ;
+                                                           rdfs:label "20-s Sit-ups"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#30-mDash
+<https://github.com/fdrobnic/ontologies/ACDSi#30-mDash> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:range xsd:decimal ;
+                                                        rdfs:comment "30-m Dash description. Units: 'second'"@en ;
+                                                        rdfs:label "30-m Dash"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#60-mDash
+<https://github.com/fdrobnic/ontologies/ACDSi#60-mDash> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:range xsd:decimal ;
+                                                        rdfs:comment "60-m Dash description. Units: 'second'"@en ;
+                                                        rdfs:label "60-m Dash"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#60-sSit-ups
+<https://github.com/fdrobnic/ontologies/ACDSi#60-sSit-ups> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:range xsd:decimal ;
+                                                           rdfs:comment "60-s Sit-ups description. Units: 'one'"@en ;
+                                                           rdfs:label "60-s Sit-ups"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#600-mRun
+<https://github.com/fdrobnic/ontologies/ACDSi#600-mRun> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:range xsd:decimal ;
+                                                        rdfs:comment "600-m Run description. Units: 'second'"@en ;
+                                                        rdfs:label "600-m Run"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#ACDSiMeasurement
+acdsi:ACDSiMeasurement rdf:type owl:Class ;
+                       rdfs:comment "A set of measurements in an ACDSi campaign pertaining to a single person."@en ;
+                       rdfs:label "ACDSi Measurement"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#Anthropometry
+acdsi:Anthropometry rdf:type owl:Class ;
+                    rdfs:subClassOf acdsi:ACDSiMeasurement ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty acdsi:bodyMassIndex ;
+                                      owl:allValuesFrom xsd:decimal
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty acdsi:height ;
+                                      owl:allValuesFrom xsd:decimal
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty acdsi:tricepsSkinfold ;
+                                      owl:allValuesFrom xsd:decimal
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty acdsi:weight ;
+                                      owl:allValuesFrom xsd:decimal
+                                    ] ;
+                    rdfs:label "Anthropometry"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#CRF
+acdsi:CRF rdf:type owl:Class ;
+          rdfs:subClassOf acdsi:MEI ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty acdsi:vO2Max ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#600-mRun> ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ;
+          rdfs:label "Cardiorespiratory Fitness"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#EUROFIT
+acdsi:EUROFIT rdf:type owl:Class ;
+              rdfs:subClassOf acdsi:ACDSiMeasurement ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty acdsi:flamingoBalanceTest ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty acdsi:handGrip ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty acdsi:shoulderCircumductionTest ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty acdsi:sitAndReach ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty acdsi:standingLongJump ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty acdsi:vO2Max ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#20-sDrummingTest> ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#20-sSit-ups> ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#30-mDash> ;
+                                owl:allValuesFrom xsd:decimal
+                              ] ;
+              rdfs:comment "EUROFIT test battery as defined by Council of Europe"@en ;
+              rdfs:label "EUROFIT test battery"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#MEI
+acdsi:MEI rdf:type owl:Class ;
+          rdfs:label "Motor Efficiency Index"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#MF
+acdsi:MF rdf:type owl:Class ;
+         rdfs:subClassOf acdsi:MEI ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty acdsi:bentArm-hang ;
+                           owl:allValuesFrom xsd:decimal
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty acdsi:handGrip ;
+                           owl:allValuesFrom xsd:decimal
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty acdsi:standingLongJump ;
+                           owl:allValuesFrom xsd:decimal
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#20-sSit-ups> ;
+                           owl:allValuesFrom xsd:decimal
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#30-mDash> ;
+                           owl:allValuesFrom xsd:decimal
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#60-sSit-ups> ;
+                           owl:allValuesFrom xsd:decimal
+                         ] ;
+         rdfs:label "Muscular Fitness"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#NMF
+acdsi:NMF rdf:type owl:Class ;
+          rdfs:subClassOf acdsi:MEI ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty acdsi:armPlateTapping ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty acdsi:backwardsObstacleCourse ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty acdsi:flamingoBalanceTest ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty acdsi:shoulderCircumductionTest ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty acdsi:sitAndReach ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#20-sDrummingTest> ;
+                            owl:allValuesFrom xsd:decimal
+                          ] ;
+          rdfs:label "Neuromuscular Fitness"@en .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#Person
+acdsi:Person rdf:type owl:Class ;
+             rdfs:subClassOf acdsi:ACDSiMeasurement ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:age ;
+                               owl:allValuesFrom xsd:integer
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:personIdentifier ;
+                               owl:allValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:sex ;
+                               owl:allValuesFrom xsd:string
+                             ] ;
+             rdfs:label "Person"@en ;
+             rdfs:seeAlso <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25190> ,
+                          <http://purl.bioontology.org/ontology/SNOMEDCT/125676002> ,
+                          <http://purl.org/net/OCRe/OCRe.owl#OCRE400076> ,
+                          <http://xmlns.com/foaf/0.1/Person> ,
+                          <https://schema.org/Person> .
+
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#SLOfit
+acdsi:SLOfit rdf:type owl:Class ;
+             rdfs:subClassOf acdsi:ACDSiMeasurement ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:armPlateTapping ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:backwardsObstacleCourse ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:bentArm-hang ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:height ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:standAndReach ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:standingLongJump ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:tricepsSkinfold ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty acdsi:weight ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#60-mDash> ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#60-sSit-ups> ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <https://github.com/fdrobnic/ontologies/ACDSi#600-mRun> ;
+                               owl:allValuesFrom xsd:decimal
+                             ] ;
+             rdfs:comment "SLOfit test battery as defined by University of Ljubljana"@en ;
+             rdfs:label "SLOfit test battery"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://github.com/fdrobnic/ontologies/ACDSi#Franc_Drobnic
+acdsi:Franc_Drobnic rdf:type owl:NamedIndividual ;
+                    rdfs:label "Franc Drobnič"@sl .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
